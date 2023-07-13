@@ -63,7 +63,7 @@ android {
         getByName("test").java.srcDirs("src/test/resources")
         getByName("androidTest").java.srcDirs("src/androidTest/resources")
     }
-    namespace = "com.br.alex.kotlin.android.githubcompose"
+    namespace = "com.mvi.alex.kotlin.android.githubcompose"
 }
 
 dependencies {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Github Compose</string>
+    <string name="app_name">MVI Template</string>
     <string name="users_list_header">Users from public Github Api</string>
     <string name="users_screen_top_bar_title">Github Users</string>
     <string name="users_screen_snackbar_loaded_message">Users are loaded.</string>

@@ -3,8 +3,8 @@ package com.br.wcabral.kotlin.android.githubcompose.ui.feature.users
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.Snapshot
 import com.br.wcabral.kotlin.android.githubcompose.MainCoroutineRule
-import com.br.alex.kotlin.android.githubcompose.data.GithubRepository
-import com.br.alex.kotlin.android.githubcompose.data.model.User
+import com.mvi.alex.kotlin.android.githubcompose.data.GithubRepository
+import com.mvi.alex.kotlin.android.githubcompose.data.model.User
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -28,7 +28,7 @@ class UsersViewModelTest {
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
 
-    private val githubRepository = mockk<com.br.alex.kotlin.android.githubcompose.data.GithubRepository>()
+    private val githubRepository = mockk<com.mvi.alex.kotlin.android.githubcompose.data.GithubRepository>()
 
     @Test
     fun `When view model initialized then should emit initial view state first`() = runTest {
@@ -49,7 +49,7 @@ class UsersViewModelTest {
     @Test
     fun `When getUsers called then should emit a view state`() = runTest {
         // Given
-        val users = listOf(com.br.alex.kotlin.android.githubcompose.data.model.User(userId = "wcabral"))
+        val users = listOf(com.mvi.alex.kotlin.android.githubcompose.data.model.User(userId = "wcabral"))
         val expectedViewState = UsersContract.State(
             users = users,
             isLoading = false,
@@ -68,7 +68,7 @@ class UsersViewModelTest {
     fun `When `() = runTest {
 
         // Given
-        val users = listOf(com.br.alex.kotlin.android.githubcompose.data.model.User(userId = "wcabral"))
+        val users = listOf(com.mvi.alex.kotlin.android.githubcompose.data.model.User(userId = "wcabral"))
         val expectedViewState = UsersContract.State(
             users = users,
             isLoading = false,

@@ -1,8 +1,8 @@
 package com.br.wcabral.kotlin.android.githubcompose.data
 
-import com.br.alex.kotlin.android.githubcompose.data.model.Repo
-import com.br.alex.kotlin.android.githubcompose.data.model.User
-import com.br.alex.kotlin.android.githubcompose.data.model.UserDetail
+import com.mvi.alex.kotlin.android.githubcompose.data.model.Repo
+import com.mvi.alex.kotlin.android.githubcompose.data.model.User
+import com.mvi.alex.kotlin.android.githubcompose.data.model.UserDetail
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.confirmVerified
@@ -14,14 +14,14 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class GithubRepositoryTest {
 
-    private val githubApi = mockk<com.br.alex.kotlin.android.githubcompose.data.GithubApi>()
-    private val githubRepository: com.br.alex.kotlin.android.githubcompose.data.GithubRepository =
-        com.br.alex.kotlin.android.githubcompose.data.GithubRepositoryImpl(githubApi)
+    private val githubApi = mockk<com.mvi.alex.kotlin.android.githubcompose.data.GithubApi>()
+    private val githubRepository: com.mvi.alex.kotlin.android.githubcompose.data.GithubRepository =
+        com.mvi.alex.kotlin.android.githubcompose.data.GithubRepositoryImpl(githubApi)
 
     @Test
     fun `When getUsers called then should call getUsers from the API`() = runTest {
         // Given
-        val users = listOf(com.br.alex.kotlin.android.githubcompose.data.model.User())
+        val users = listOf(com.mvi.alex.kotlin.android.githubcompose.data.model.User())
         coEvery { githubApi.getUsers() } returns users
 
         // When
@@ -37,7 +37,7 @@ class GithubRepositoryTest {
     fun `When getUser called then should call getUser from the API`() = runTest {
         // Given
         val userId = "wcabral"
-        coEvery { githubApi.getUser(any()) } returns com.br.alex.kotlin.android.githubcompose.data.model.UserDetail()
+        coEvery { githubApi.getUser(any()) } returns com.mvi.alex.kotlin.android.githubcompose.data.model.UserDetail()
 
         // When
         val result = githubRepository.getUser(userId)
@@ -52,7 +52,7 @@ class GithubRepositoryTest {
     fun `When getRepos called then should call getRepos from the API`() = runTest {
         // Given
         val userId = "wcabral"
-        coEvery { githubApi.getRepos(userId) } returns listOf(com.br.alex.kotlin.android.githubcompose.data.model.Repo())
+        coEvery { githubApi.getRepos(userId) } returns listOf(com.mvi.alex.kotlin.android.githubcompose.data.model.Repo())
 
         // When
         val result = githubRepository.getRepos(userId)

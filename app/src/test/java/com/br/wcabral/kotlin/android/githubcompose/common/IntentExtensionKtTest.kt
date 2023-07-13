@@ -17,7 +17,7 @@ class IntentExtensionKtTest {
         val urlUri = Uri.parse(url)
 
         // When
-        val intent = com.br.alex.kotlin.android.githubcompose.common.buildUrlIntent(url)
+        val intent = com.mvi.alex.kotlin.android.githubcompose.common.buildUrlIntent(url)
 
         // Then
         assertEquals(Intent.ACTION_VIEW, intent.action)

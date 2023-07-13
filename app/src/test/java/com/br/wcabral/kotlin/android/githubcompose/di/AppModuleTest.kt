@@ -25,7 +25,7 @@ class AppModuleTest {
     @Test
     fun `verify koin app`() {
         koinApplication {
-            modules(com.br.alex.kotlin.android.githubcompose.di.appModule, repositoryModule, viewModelModule)
+            modules(com.mvi.alex.kotlin.android.githubcompose.di.appModule, repositoryModule, viewModelModule)
             checkModules {
                 withParameter<ReposViewModel> { "userId" }
             }

@@ -1,8 +1,8 @@
 package com.br.wcabral.kotlin.android.githubcompose.data
 
-import com.br.alex.kotlin.android.githubcompose.data.model.Repo
-import com.br.alex.kotlin.android.githubcompose.data.model.User
-import com.br.alex.kotlin.android.githubcompose.data.model.UserDetail
+import com.mvi.alex.kotlin.android.githubcompose.data.model.Repo
+import com.mvi.alex.kotlin.android.githubcompose.data.model.User
+import com.mvi.alex.kotlin.android.githubcompose.data.model.UserDetail
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockWebServer
@@ -27,7 +27,7 @@ class GithubApiTest {
         .baseUrl(mockWebService.url("/"))
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
-        .build().create(com.br.alex.kotlin.android.githubcompose.data.GithubApi::class.java)
+        .build().create(com.mvi.alex.kotlin.android.githubcompose.data.GithubApi::class.java)
 
     @After
     fun tearDown() {
@@ -42,17 +42,17 @@ class GithubApiTest {
             code = 200
         )
         val expected = listOf(
-            com.br.alex.kotlin.android.githubcompose.data.model.User(
+            com.mvi.alex.kotlin.android.githubcompose.data.model.User(
                 userId = "mojombo",
                 avatarUrl = "https://avatars.githubusercontent.com/u/1?v=4",
                 htmlUrl = "https://github.com/mojombo",
             ),
-            com.br.alex.kotlin.android.githubcompose.data.model.User(
+            com.mvi.alex.kotlin.android.githubcompose.data.model.User(
                 userId = "defunkt",
                 avatarUrl = "https://avatars.githubusercontent.com/u/2?v=4",
                 htmlUrl = "https://github.com/defunkt",
             ),
-            com.br.alex.kotlin.android.githubcompose.data.model.User(
+            com.mvi.alex.kotlin.android.githubcompose.data.model.User(
                 userId = "pjhyett",
                 avatarUrl = "https://avatars.githubusercontent.com/u/3?v=4",
                 htmlUrl = "https://github.com/pjhyett",
@@ -76,7 +76,7 @@ class GithubApiTest {
             fileName = "user-detail.json",
             code = 200
         )
-        val expected = com.br.alex.kotlin.android.githubcompose.data.model.UserDetail(
+        val expected = com.mvi.alex.kotlin.android.githubcompose.data.model.UserDetail(
             avatarUrl = "https://avatars.githubusercontent.com/u/1?v=4",
             htmlUrl = "https://github.com/mojombo",
             name = "Tom Preston-Werner",
@@ -106,7 +106,7 @@ class GithubApiTest {
         )
 
         val expected = listOf(
-            com.br.alex.kotlin.android.githubcompose.data.model.Repo(
+            com.mvi.alex.kotlin.android.githubcompose.data.model.Repo(
                 id = 26899533,
                 name = "30daysoflaptops.github.io",
                 description = null,
@@ -116,7 +116,7 @@ class GithubApiTest {
                 language = "CSS",
                 htmlUrl = "https://github.com/mojombo/30daysoflaptops.github.io",
             ),
-            com.br.alex.kotlin.android.githubcompose.data.model.Repo(
+            com.mvi.alex.kotlin.android.githubcompose.data.model.Repo(
                 id = 17358646,
                 name = "asteroids",
                 description = "Destroy your Atom editor, Asteroids style!",
@@ -126,7 +126,7 @@ class GithubApiTest {
                 language = "JavaScript",
                 htmlUrl = "https://github.com/mojombo/asteroids",
             ),
-            com.br.alex.kotlin.android.githubcompose.data.model.Repo(
+            com.mvi.alex.kotlin.android.githubcompose.data.model.Repo(
                 id = 29941343,
                 name = "benbalter.github.com",
                 description = "The personal website of Ben Balter. Built using Jekyll and GitHub Pages. See humans.txt for more infos.",
